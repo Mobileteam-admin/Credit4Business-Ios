@@ -524,17 +524,17 @@ class PersonalViewController: BaseViewController {
         self.verifyButton.addTapGestureRecognizer {
             self.isValidSignupFields()
             if self.goSignup() {
-//                if self.passwordTF.text != "000000"
-//                {
-//                    self.modeOfApplicationErrStack.isHidden = false
-//                    self.modeOfApplicationErrLabel.text = "Invalid OTP"
-//                }
-//                else {
+                if self.passwordTF.text != "000000"
+                {
+                    self.modeOfApplicationErrStack.isHidden = false
+                    self.modeOfApplicationErrLabel.text = "Invalid OTP"
+                }
+                else {
                     var dicts = JSON()
                     dicts["phone_number"] = String(format:"%@",self.phoneTF.text!)
                     dicts["otp"] = String(format:"%@",self.passwordTF.text!)
                     self.callOTPVerificationAPI(parms: dicts)
-//                }
+                }
             }
         }
         self.businessTableArrowActionView.addTapGestureRecognizer {
@@ -1880,13 +1880,13 @@ extension PersonalViewController : UITextFieldDelegate {
                 self.passwordErrStack.isHidden = false
                 self.passwordErrLabel.text = "Please enter OTP"
             }
-//            if self.passwordTF.text != "000000"
-//            {
-//                self.modeOfApplicationErrStack.isHidden = false
-//                self.modeOfApplicationErrLabel.text = "Invalid OTP"
-//            }else{
+            if self.passwordTF.text != "000000"
+            {
+                self.modeOfApplicationErrStack.isHidden = false
+                self.modeOfApplicationErrLabel.text = "Invalid OTP"
+            }else{
                 self.passwordErrStack.isHidden = true
-//            }
+            }
         case self.cityTF:
             if (self.cityTF.text == nil || self.cityTF.text == "") {
                 self.cityErrStack.isHidden = false

@@ -1956,7 +1956,7 @@ extension LeadsDetailsVC {
        
         self.registerKVArray.append(address)
         self.registerKVArray.append(postcode)
-        self.registerKVArray.append(premiseType)
+      //  self.registerKVArray.append(premiseType)
         if start != "" && end != "" {
             self.registerKVArray.append(timePeriod)
         }

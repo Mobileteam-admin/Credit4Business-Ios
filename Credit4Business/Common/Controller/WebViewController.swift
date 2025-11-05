@@ -103,9 +103,9 @@ extension WebViewController: WKNavigationDelegate,WKUIDelegate {
 //            self.goBack()
         })
         let str = String(describing: webView.url?.absoluteString)
-        if str.contains("https://staging.d2eazydwukyepn.amplifyapp.com/gocadless-success"){
+        //if str.contains("https://staging.d2eazydwukyepn.amplifyapp.com/gocadless-success"){
 
-      //  if str.contains("https://credit4-b.demoserver.work/gocadless-success"){
+        if str.contains("https://credit4-b.demoserver.work/gocadless-success"){
             if self.isToRedirect {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.goBack()

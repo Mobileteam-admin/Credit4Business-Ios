@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-let APIBaseUrl : String = "https://staging.credit4business.co.uk/"//"https://credit.demoserver.work/"
+let APIBaseUrl : String = "https://credit.demoserver.work/" //"https://staging.credit4business.co.uk/"
 let sceneDelegate                           = UIApplication.shared.connectedScenes
         .first!.delegate as! SceneDelegate
 let APIUrl : String = APIBaseUrl
