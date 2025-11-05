@@ -44,21 +44,22 @@ extension FileManager {
       let permissions = mode_t(externalFileAttributes >> 16) & ~S_IFMT
       let defaultPermissions = entryType == .directory ? defaultDirectoryPermissions : defaultFilePermissions
       return permissions == 0 ? defaultPermissions : UInt16(permissions)
+
     default:
       return entryType == .directory ? defaultDirectoryPermissions : defaultFilePermissions
     }
   }
 
   class func externalFileAttributesForEntry(of type: Entry.EntryType, permissions: UInt16) -> UInt32 {
-    var typeInt: UInt16
-    switch type {
-    case .file:
-      typeInt = UInt16(S_IFREG)
-    case .directory:
-      typeInt = UInt16(S_IFDIR)
-    case .symlink:
-      typeInt = UInt16(S_IFLNK)
-    }
+    let typeInt =
+      switch type {
+      case .file:
+        UInt16(S_IFREG)
+      case .directory:
+        UInt16(S_IFDIR)
+      case .symlink:
+        UInt16(S_IFLNK)
+      }
     var externalFileAttributes = UInt32(typeInt | UInt16(permissions))
     externalFileAttributes = (externalFileAttributes << 16)
     return externalFileAttributes
@@ -88,8 +89,7 @@ extension FileManager {
     #endif
 
     let timeStamp = TimeInterval(modTimeSpec.tv_sec) + TimeInterval(modTimeSpec.tv_nsec) / 1000000000.0
-    let modDate = Date(timeIntervalSince1970: timeStamp)
-    return modDate
+    return Date(timeIntervalSince1970: timeStamp)
   }
 
   class func fileSizeForItem(at url: URL) throws -> Int64 {
@@ -156,7 +156,7 @@ extension FileManager {
     if isDirectory {
       let subPaths = try subpathsOfDirectory(atPath: sourceURL.path)
       var totalUnitCount = Int64(0)
-      if let progress = progress {
+      if let progress {
         totalUnitCount = subPaths.reduce(Int64(0)) {
           let itemURL = sourceURL.appendingPathComponent($1)
           let itemSize = archive.totalUnitCountForAddingItem(at: itemURL)
@@ -171,7 +171,7 @@ extension FileManager {
       for entryPath in subPaths {
         let finalEntryPath = shouldKeepParent ? directoryPrefix + "/" + entryPath : entryPath
         let finalBaseURL = shouldKeepParent ? sourceURL.deletingLastPathComponent() : sourceURL
-        if let progress = progress {
+        if let progress {
           let itemURL = sourceURL.appendingPathComponent(entryPath)
           let entryProgress = archive.makeProgressForAddingItem(at: itemURL)
           progress.addChild(entryProgress, withPendingUnitCount: entryProgress.totalUnitCount)
@@ -233,7 +233,7 @@ extension FileManager {
       }
     }
     var totalUnitCount = Int64(0)
-    if let progress = progress {
+    if let progress {
       totalUnitCount = sortedEntries.reduce(0) { $0 + archive.totalUnitCountForReading($1) }
       progress.totalUnitCount = totalUnitCount
     }
@@ -247,7 +247,7 @@ extension FileManager {
           userInfo: [NSFilePathErrorKey: entryURL.path])
       }
       let crc32: CRC32
-      if let progress = progress {
+      if let progress {
         let entryProgress = archive.makeProgressForReading(entry)
         progress.addChild(entryProgress, withPendingUnitCount: entryProgress.totalUnitCount)
         crc32 = try archive.extract(entry, to: entryURL, skipCRC32: skipCRC32, progress: entryProgress)
@@ -307,7 +307,7 @@ extension Date {
   // MARK: Internal
 
   var fileModificationDateTime: (UInt16, UInt16) {
-    (self.fileModificationDate, self.fileModificationTime)
+    (fileModificationDate, fileModificationTime)
   }
 
   var fileModificationDate: UInt16 {
@@ -349,7 +349,7 @@ extension Date {
 extension CocoaError {
   static func error(_ code: CocoaError.Code, userInfo: [AnyHashable: Any]? = nil, url: URL? = nil) -> Error {
     var info: [String: Any] = userInfo as? [String: Any] ?? [:]
-    if let url = url {
+    if let url {
       info[NSURLErrorKey] = url
     }
     return NSError(domain: NSCocoaErrorDomain, code: code.rawValue, userInfo: info)

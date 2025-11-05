@@ -5,7 +5,7 @@
 //  Created by Brandon Withrow on 1/8/19.
 //
 
-import Foundation
+// MARK: - Stroke
 
 final class Stroke: ShapeItem {
 
@@ -134,3 +134,10 @@ final class Stroke: ShapeItem {
     case dashPattern = "d"
   }
 }
+
+// MARK: @unchecked Sendable
+
+/// `Stroke` inherits `@unchecked Sendable` from `ShapeItem` and
+/// we need to restate that here to avoid a warning in Xcode 16
+// swiftlint:disable:next no_unchecked_sendable
+extension Stroke: @unchecked Sendable { }

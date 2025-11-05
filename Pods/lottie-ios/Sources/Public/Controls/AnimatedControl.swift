@@ -11,8 +11,6 @@ import UIKit
 import AppKit
 #endif
 
-import Foundation
-
 // MARK: - AnimatedControl
 
 /// Lottie comes prepacked with a two Animated Controls, `AnimatedSwitch` and
@@ -111,7 +109,7 @@ open class AnimatedControl: LottieControlType {
 
   #elseif canImport(AppKit)
   open override func mouseDown(with mouseDownEvent: NSEvent) {
-    guard let window = window else { return }
+    guard let window else { return }
 
     currentState = .highlighted
     updateForState()
@@ -190,6 +188,11 @@ open class AnimatedControl: LottieControlType {
   /// Sets a ValueProvider for the specified keypath
   public func setValueProvider(_ valueProvider: AnyValueProvider, keypath: AnimationKeypath) {
     animationView.setValueProvider(valueProvider, keypath: keypath)
+  }
+
+  /// Removes a ValueProvider for the specified keypath
+  public func removeValueProvider(for keypath: AnimationKeypath) {
+    animationView.removeValueProvider(for: keypath)
   }
 
   // MARK: Internal

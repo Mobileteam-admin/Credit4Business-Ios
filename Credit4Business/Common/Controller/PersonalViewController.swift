@@ -240,7 +240,7 @@ class PersonalViewController: BaseViewController {
     override
     func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         if UserDefaults.standard.value(forKey: "role") as? String != "" && isFromIncomplete {
             self.fetchPersonalDetails()
         }
@@ -252,7 +252,7 @@ class PersonalViewController: BaseViewController {
     override
     func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.isEnabled = false
     }
     //---------------------------------------
     // MARK: - Init With Story

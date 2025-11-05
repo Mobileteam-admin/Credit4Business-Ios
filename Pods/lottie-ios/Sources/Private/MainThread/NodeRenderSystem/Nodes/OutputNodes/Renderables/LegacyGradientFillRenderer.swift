@@ -5,7 +5,6 @@
 //  Created by Brandon Withrow on 1/30/19.
 //
 
-import Foundation
 import QuartzCore
 
 /// A rendered for a Path Fill
@@ -13,7 +12,7 @@ final class LegacyGradientFillRenderer: PassThroughOutputNode, Renderable {
 
   var shouldRenderInContext = true
 
-  var start: CGPoint = .zero {
+  var start = CGPoint.zero {
     didSet {
       hasUpdate = true
     }
@@ -31,7 +30,7 @@ final class LegacyGradientFillRenderer: PassThroughOutputNode, Renderable {
     }
   }
 
-  var end: CGPoint = .zero {
+  var end = CGPoint.zero {
     didSet {
       hasUpdate = true
     }
@@ -43,7 +42,7 @@ final class LegacyGradientFillRenderer: PassThroughOutputNode, Renderable {
     }
   }
 
-  var type: GradientType = .none {
+  var type = GradientType.none {
     didSet {
       hasUpdate = true
     }

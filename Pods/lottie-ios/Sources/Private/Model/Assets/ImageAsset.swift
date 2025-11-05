@@ -5,7 +5,14 @@
 //  Created by Brandon Withrow on 1/9/19.
 //
 
+import CoreGraphics
 import Foundation
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 // MARK: - ImageAsset
 
@@ -111,3 +118,23 @@ extension Data {
   }
 
 }
+
+extension ImageAsset {
+  /// A `CGImage` loaded from this asset if represented using a Base 64 encoding
+  var base64Image: CGImage? {
+    guard let data = Data(imageAsset: self) else { return nil }
+
+    #if canImport(UIKit)
+    return UIImage(data: data)?.cgImage
+    #elseif canImport(AppKit)
+    return NSImage(data: data)?.lottie_CGImage
+    #endif
+  }
+}
+
+// MARK: - ImageAsset + Sendable
+
+/// `ImageAsset` inherits `@unchecked Sendable` from `Asset` and
+/// we need to restate that here to avoid a warning in Xcode 16
+// swiftlint:disable:next no_unchecked_sendable
+extension ImageAsset: @unchecked Sendable { }

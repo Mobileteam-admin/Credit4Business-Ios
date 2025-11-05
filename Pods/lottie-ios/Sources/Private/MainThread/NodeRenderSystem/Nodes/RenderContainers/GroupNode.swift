@@ -5,8 +5,6 @@
 //  Created by Brandon Withrow on 1/18/19.
 //
 
-import CoreGraphics
-import Foundation
 import QuartzCore
 
 // MARK: - GroupNodeProperties
@@ -16,7 +14,7 @@ final class GroupNodeProperties: NodePropertyMap, KeypathSearchable {
   // MARK: Lifecycle
 
   init(transform: ShapeTransform?) {
-    if let transform = transform {
+    if let transform {
       anchor = NodeProperty(provider: KeyframeInterpolator(keyframes: transform.anchor.keyframes))
       position = NodeProperty(provider: KeyframeInterpolator(keyframes: transform.position.keyframes))
       scale = NodeProperty(provider: KeyframeInterpolator(keyframes: transform.scale.keyframes))
@@ -39,16 +37,16 @@ final class GroupNodeProperties: NodePropertyMap, KeypathSearchable {
       skewAxis = NodeProperty(provider: SingleValueProvider(LottieVector1D(0)))
     }
     keypathProperties = [
-      "Anchor Point" : anchor,
-      PropertyName.position.rawValue : position,
-      PropertyName.scale.rawValue : scale,
-      PropertyName.rotation.rawValue : rotationZ,
-      "Rotation X" : rotationX,
-      "Rotation Y" : rotationY,
-      "Rotation Z" : rotationZ,
-      PropertyName.opacity.rawValue : opacity,
-      "Skew" : skew,
-      "Skew Axis" : skewAxis,
+      "Anchor Point": anchor,
+      PropertyName.position.rawValue: position,
+      PropertyName.scale.rawValue: scale,
+      PropertyName.rotation.rawValue: rotationZ,
+      "Rotation X": rotationX,
+      "Rotation Y": rotationY,
+      "Rotation Z": rotationZ,
+      PropertyName.opacity.rawValue: opacity,
+      "Skew": skew,
+      "Skew Axis": skewAxis,
     ]
     properties = Array(keypathProperties.values)
   }

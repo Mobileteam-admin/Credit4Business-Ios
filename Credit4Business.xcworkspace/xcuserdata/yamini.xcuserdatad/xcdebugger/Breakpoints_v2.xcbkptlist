@@ -18,106 +18,6 @@
             endingLineNumber = "515"
             landmarkName = "fetchGocardlessManualStatementDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - c00a8b5e34df924f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "501"
-                  endingLineNumber = "501">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - e26725226c712da2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "500"
-                  endingLineNumber = "500">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - c00a8b5e34df91a8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "502"
-                  endingLineNumber = "502">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - e26725226c712e26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "504"
-                  endingLineNumber = "504">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - c00a8b5e34df9124"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "506"
-                  endingLineNumber = "506">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - e26725226c712fb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "515"
-                  endingLineNumber = "515">
-               </Location>
-               <Location
-                  uuid = "32336DCA-2DD0-4252-9F32-C6863DD18AEE - c00a8b5e34dfefbf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "517"
-                  endingLineNumber = "517">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -134,64 +34,6 @@
             endingLineNumber = "522"
             landmarkName = "fetchGocardlessManualStatementDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "15869D8C-B8DC-448D-86D6-0C11200A1D1B - c00a8b5e34df9105"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "507"
-                  endingLineNumber = "507">
-               </Location>
-               <Location
-                  uuid = "15869D8C-B8DC-448D-86D6-0C11200A1D1B - c00a8b5e34df9105"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "507"
-                  endingLineNumber = "507">
-               </Location>
-               <Location
-                  uuid = "15869D8C-B8DC-448D-86D6-0C11200A1D1B - c00a8b5e34df9081"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "511"
-                  endingLineNumber = "511">
-               </Location>
-               <Location
-                  uuid = "15869D8C-B8DC-448D-86D6-0C11200A1D1B - c00a8b5e34dfef14"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "522"
-                  endingLineNumber = "522">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,64 +50,6 @@
             endingLineNumber = "531"
             landmarkName = "fetchGocardlessManualStatementDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "01658873-3AA6-4991-9DF3-320F54835C5E - c00a8b5e34df9147"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "509"
-                  endingLineNumber = "509">
-               </Location>
-               <Location
-                  uuid = "01658873-3AA6-4991-9DF3-320F54835C5E - c00a8b5e34df9147"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "509"
-                  endingLineNumber = "509">
-               </Location>
-               <Location
-                  uuid = "01658873-3AA6-4991-9DF3-320F54835C5E - c00a8b5e34dfefda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "520"
-                  endingLineNumber = "520">
-               </Location>
-               <Location
-                  uuid = "01658873-3AA6-4991-9DF3-320F54835C5E - c00a8b5e34dfee6d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.GocardlessManualModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchGocardlessManualStatementDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "531"
-                  endingLineNumber = "531">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -282,64 +66,6 @@
             endingLineNumber = "588"
             landmarkName = "fetchBankAccountDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DF48EF49-83A0-4970-A138-1D28B6A885C5 - 35f95b102a93e21c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567">
-               </Location>
-               <Location
-                  uuid = "DF48EF49-83A0-4970-A138-1D28B6A885C5 - 35f95b102a93e21c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "567"
-                  endingLineNumber = "567">
-               </Location>
-               <Location
-                  uuid = "DF48EF49-83A0-4970-A138-1D28B6A885C5 - 35f95b102a93e3d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "577"
-                  endingLineNumber = "577">
-               </Location>
-               <Location
-                  uuid = "DF48EF49-83A0-4970-A138-1D28B6A885C5 - 35f95b102a93ed43"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "588"
-                  endingLineNumber = "588">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -356,64 +82,6 @@
             endingLineNumber = "590"
             landmarkName = "fetchBankAccountDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0C9B68EA-78A4-49DD-AF47-BC353E966CB0 - 35f95b102a93e2de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "569"
-                  endingLineNumber = "569">
-               </Location>
-               <Location
-                  uuid = "0C9B68EA-78A4-49DD-AF47-BC353E966CB0 - 35f95b102a93e2de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "569"
-                  endingLineNumber = "569">
-               </Location>
-               <Location
-                  uuid = "0C9B68EA-78A4-49DD-AF47-BC353E966CB0 - 35f95b102a93ec68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "579"
-                  endingLineNumber = "579">
-               </Location>
-               <Location
-                  uuid = "0C9B68EA-78A4-49DD-AF47-BC353E966CB0 - 35f95b102a93ed05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.BankAccountModel, Swift.Error&gt;) -&gt; () in Credit4Business.GocartlessViewController.fetchBankAccountDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/GocartlessViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "590"
-                  endingLineNumber = "590">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -478,92 +146,6 @@
             endingLineNumber = "67"
             landmarkName = "generatePDFData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 17dba43c63e7a9fd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66">
-               </Location>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 370779e00b59bb30"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67">
-               </Location>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 370779e00b59a4f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139">
-               </Location>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 370779e00b59a4f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139">
-               </Location>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 370779e00b59a4db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140">
-               </Location>
-               <Location
-                  uuid = "DAFE44C8-4A5B-4729-9606-CF89C871796A - 370779e00b59a4db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -580,64 +162,6 @@
             endingLineNumber = "195"
             landmarkName = "generatePDFData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B8FED59E-FA57-48B8-BD28-3492987AF35A - 370779e00b59ab17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192">
-               </Location>
-               <Location
-                  uuid = "B8FED59E-FA57-48B8-BD28-3492987AF35A - 370779e00b59abd1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194">
-               </Location>
-               <Location
-                  uuid = "B8FED59E-FA57-48B8-BD28-3492987AF35A - 370779e00b59abb0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "195"
-                  endingLineNumber = "195">
-               </Location>
-               <Location
-                  uuid = "B8FED59E-FA57-48B8-BD28-3492987AF35A - 370779e00b59ab93"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -654,50 +178,6 @@
             endingLineNumber = "204"
             landmarkName = "generatePDFData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E17E35F0-94C5-495C-A291-B0E8EB9A0A9B - 370779e00b59acb8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203">
-               </Location>
-               <Location
-                  uuid = "E17E35F0-94C5-495C-A291-B0E8EB9A0A9B - 370779e00b59acb8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203">
-               </Location>
-               <Location
-                  uuid = "E17E35F0-94C5-495C-A291-B0E8EB9A0A9B - 370779e00b59ac9b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "204"
-                  endingLineNumber = "204">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -714,50 +194,6 @@
             endingLineNumber = "208"
             landmarkName = "generatePDFData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "329CD7D1-5F56-4C82-9F7A-1BB792934B63 - 370779e00b59ad7a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205">
-               </Location>
-               <Location
-                  uuid = "329CD7D1-5F56-4C82-9F7A-1BB792934B63 - 370779e00b59ad24"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "207"
-                  endingLineNumber = "207">
-               </Location>
-               <Location
-                  uuid = "329CD7D1-5F56-4C82-9F7A-1BB792934B63 - 370779e00b59ad07"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIGraphicsPDFRendererContext) -&gt; () in Credit4Business.PaymentHistoryCell.generatePDFData() -&gt; Swift.Optional&lt;Foundation.Data&gt;"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/User/Cells/ProfileCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "208"
-                  endingLineNumber = "208">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -774,64 +210,6 @@
             endingLineNumber = "1527"
             landmarkName = "fetchPaymentDetails()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B981DE9E-257C-4683-AB49-4A58BE2B87E9 - 92e7c1c23383b994"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.ProfileDetailsVC.fetchPaymentDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/ProfileDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1523"
-                  endingLineNumber = "1523">
-               </Location>
-               <Location
-                  uuid = "B981DE9E-257C-4683-AB49-4A58BE2B87E9 - d633e300e42eebeb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.UpcomingPaymentsModel, Swift.Error&gt;) -&gt; () in Credit4Business.ProfileDetailsVC.fetchPaymentDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/ProfileDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1525"
-                  endingLineNumber = "1525">
-               </Location>
-               <Location
-                  uuid = "B981DE9E-257C-4683-AB49-4A58BE2B87E9 - 92e7c1c23383b875"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.ProfileDetailsVC.fetchPaymentDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/ProfileDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1524"
-                  endingLineNumber = "1524">
-               </Location>
-               <Location
-                  uuid = "B981DE9E-257C-4683-AB49-4A58BE2B87E9 - d633e300e42eeb8a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.UpcomingPaymentsModel, Swift.Error&gt;) -&gt; () in Credit4Business.ProfileDetailsVC.fetchPaymentDetails() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/ProfileDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1526"
-                  endingLineNumber = "1526">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -862,38 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "833"
             endingLineNumber = "833"
-            landmarkName = "updateFilledForms()"
+            landmarkName = "updateModel()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BEB61EA8-7399-497E-BF9E-44C4ABEA74F8 - 5c17e702f15e62c4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.PersonalViewController.updateFilledForms() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "828"
-                  endingLineNumber = "828">
-               </Location>
-               <Location
-                  uuid = "BEB61EA8-7399-497E-BF9E-44C4ABEA74F8 - 99a1181ee527f2b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.PersonalViewController.updateModel() -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "828"
-                  endingLineNumber = "828">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -910,36 +258,6 @@
             endingLineNumber = "874"
             landmarkName = "createPersonalDetals(Dict:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6D699B66-B19D-48AD-8747-98416F466C01 - 3e0ff1b3ef87a710"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.ResponseDataStructure, Swift.Error&gt;) -&gt; () in Credit4Business.PersonalViewController.createPersonalDetals(Dict: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "870"
-                  endingLineNumber = "870">
-               </Location>
-               <Location
-                  uuid = "6D699B66-B19D-48AD-8747-98416F466C01 - be2671a73767fe7e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Credit4Business.PersonalViewController.createPersonalDetals(Dict: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "869"
-                  endingLineNumber = "869">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -956,36 +274,6 @@
             endingLineNumber = "1540"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "048D07C3-82EB-4737-B87C-14C7B099CD11 - ab37084999782dd2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in Credit4Business.PersonalViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1535"
-                  endingLineNumber = "1535">
-               </Location>
-               <Location
-                  uuid = "048D07C3-82EB-4737-B87C-14C7B099CD11 - ab37084999782dd2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in Credit4Business.PersonalViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1535"
-                  endingLineNumber = "1535">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1002,36 +290,6 @@
             endingLineNumber = "1204"
             landmarkName = "callCompanyPostcodeLookupAPI(parms:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DC42D39E-9261-43B1-8DB7-148EB63F3FD7 - fb9b399d9ee6aa17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.CompanyLookupModel, Swift.Error&gt;) -&gt; () in Credit4Business.PersonalViewController.callCompanyPostcodeLookupAPI(parms: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1199"
-                  endingLineNumber = "1199">
-               </Location>
-               <Location
-                  uuid = "DC42D39E-9261-43B1-8DB7-148EB63F3FD7 - fb9b399d9ee6aa17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Credit4Business.CompanyLookupModel, Swift.Error&gt;) -&gt; () in Credit4Business.PersonalViewController.callCompanyPostcodeLookupAPI(parms: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
-                  moduleName = "Credit4Business"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yamini/Documents/MobileTeamC4BClone/C4B-IOS/Credit4Business/Common/Controller/PersonalViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1199"
-                  endingLineNumber = "1199">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

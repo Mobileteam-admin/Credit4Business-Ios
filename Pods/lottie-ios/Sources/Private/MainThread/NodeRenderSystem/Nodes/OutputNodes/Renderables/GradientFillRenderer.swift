@@ -5,14 +5,13 @@
 //  Created by Brandon Withrow on 1/30/19.
 //
 
-import Foundation
 import QuartzCore
 
 // MARK: - GradientFillLayer
 
 private final class GradientFillLayer: CALayer {
 
-  var start: CGPoint = .zero {
+  var start = CGPoint.zero {
     didSet {
       setNeedsDisplay()
     }
@@ -30,13 +29,13 @@ private final class GradientFillLayer: CALayer {
     }
   }
 
-  var end: CGPoint = .zero {
+  var end = CGPoint.zero {
     didSet {
       setNeedsDisplay()
     }
   }
 
-  var type: GradientType = .none {
+  var type = GradientType.none {
     didSet {
       setNeedsDisplay()
     }
@@ -145,15 +144,15 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
     gradientLayer.mask = maskLayer
 
     maskLayer.actions = [
-      "startPoint" : NSNull(),
-      "endPoint" : NSNull(),
-      "opacity" : NSNull(),
-      "locations" : NSNull(),
-      "colors" : NSNull(),
-      "bounds" : NSNull(),
-      "anchorPoint" : NSNull(),
-      "isRadial" : NSNull(),
-      "path" : NSNull(),
+      "startPoint": NSNull(),
+      "endPoint": NSNull(),
+      "opacity": NSNull(),
+      "locations": NSNull(),
+      "colors": NSNull(),
+      "bounds": NSNull(),
+      "anchorPoint": NSNull(),
+      "isRadial": NSNull(),
+      "path": NSNull(),
     ]
     gradientLayer.actions = maskLayer.actions
   }
@@ -162,7 +161,7 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
 
   var shouldRenderInContext = false
 
-  var start: CGPoint = .zero {
+  var start = CGPoint.zero {
     didSet {
       hasUpdate = true
     }
@@ -180,7 +179,7 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
     }
   }
 
-  var end: CGPoint = .zero {
+  var end = CGPoint.zero {
     didSet {
       hasUpdate = true
     }
@@ -192,7 +191,7 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
     }
   }
 
-  var type: GradientType = .none {
+  var type = GradientType.none {
     didSet {
       hasUpdate = true
     }

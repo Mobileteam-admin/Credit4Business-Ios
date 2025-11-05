@@ -126,7 +126,7 @@ class FundingViewController: BaseViewController {
     override
     func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
        // if UserDefaults.standard.value(forKey: "role") as? String == "LEADS" && isFromIncomplete {
         if self.customerId != "" {
             self.fetchBusinessDetails(customerId: self.customerId)
@@ -142,7 +142,7 @@ class FundingViewController: BaseViewController {
     override
     func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.isEnabled = false
     }
     //---------------------------------------
     // MARK: - Init With Story

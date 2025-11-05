@@ -209,7 +209,7 @@ class ProfileDetailsVC: UIViewController, CellDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         self.navigationController?.isNavigationBarHidden = true
         if let tabbar = self.parent?.parent as? TabBarController {
             if let navigationController = tabbar.parent as? UINavigationController {
@@ -223,7 +223,7 @@ class ProfileDetailsVC: UIViewController, CellDelegate {
     override
     func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.isEnabled = false
     }
     func setDelegates() {
         self.headersCollection.delegate = self

@@ -1,7 +1,6 @@
 // Created by Cal Stephens on 2/10/22.
 // Copyright © 2022 Airbnb Inc. All rights reserved.
 
-import Foundation
 import QuartzCore
 
 // MARK: - StrokeShapeItem
@@ -24,6 +23,7 @@ extension Stroke: StrokeShapeItem {
 
   func copy(width: KeyframeGroup<LottieVector1D>) -> StrokeShapeItem {
     // Type-erase the copy from `Stroke` to `StrokeShapeItem`
+    // swiftformat:disable:next redundantProperty
     let copy: Stroke = copy(width: width)
     return copy
   }
@@ -36,6 +36,7 @@ extension GradientStroke: StrokeShapeItem {
 
   func copy(width: KeyframeGroup<LottieVector1D>) -> StrokeShapeItem {
     // Type-erase the copy from `GradientStroke` to `StrokeShapeItem`
+    // swiftformat:disable:next redundantProperty
     let copy: GradientStroke = copy(width: width)
     return copy
   }

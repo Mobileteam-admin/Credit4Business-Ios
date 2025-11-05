@@ -5,8 +5,6 @@
 //  Created by Brandon Withrow on 1/8/19.
 //
 
-import Foundation
-
 // MARK: - GradientType
 
 enum GradientType: Int, Codable, Sendable {
@@ -45,7 +43,7 @@ final class GradientFill: ShapeItem {
     endPoint = try KeyframeGroup<LottieVector3D>(dictionary: endPointDictionary)
     let gradientRawType: Int = try dictionary.value(for: CodingKeys.gradientType)
     guard let gradient = GradientType(rawValue: gradientRawType) else {
-      throw InitializableError.invalidInput
+      throw InitializableError.invalidInput()
     }
     gradientType = gradient
     if let highlightLengthDictionary = dictionary[CodingKeys.highlightLength.rawValue] as? [String: Any] {
@@ -135,3 +133,10 @@ final class GradientFill: ShapeItem {
     case colors = "k"
   }
 }
+
+// MARK: @unchecked Sendable
+
+/// `GradientFill` inherits `@unchecked Sendable` from `ShapeItem` and
+/// we need to restate that here to avoid a warning in Xcode 16
+// swiftlint:disable:next no_unchecked_sendable
+extension GradientFill: @unchecked Sendable { }

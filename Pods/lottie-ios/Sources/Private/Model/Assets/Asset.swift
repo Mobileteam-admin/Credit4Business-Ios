@@ -5,8 +5,6 @@
 //  Created by Brandon Withrow on 1/9/19.
 //
 
-import Foundation
-
 // MARK: - Asset
 
 public class Asset: Codable, DictionaryInitializable {
@@ -28,7 +26,7 @@ public class Asset: Codable, DictionaryInitializable {
     } else if let id = dictionary[CodingKeys.id.rawValue] as? Int {
       self.id = String(id)
     } else {
-      throw InitializableError.invalidInput
+      throw InitializableError.invalidInput()
     }
   }
 
@@ -44,8 +42,9 @@ public class Asset: Codable, DictionaryInitializable {
   }
 }
 
-// MARK: Sendable
+// MARK: @unchecked Sendable
 
 /// Since `Asset` isn't `final`, we have to use `@unchecked Sendable` instead of `Sendable.`
 /// All `Asset` subclasses are immutable `Sendable` values.
+// swiftlint:disable:next no_unchecked_sendable
 extension Asset: @unchecked Sendable { }

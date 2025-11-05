@@ -5,8 +5,6 @@
 //  Created by Brandon Withrow on 1/14/19.
 //
 
-import Foundation
-
 // MARK: - KeyframeGroup
 
 /// Used for coding/decoding a group of Keyframes by type.
@@ -153,12 +151,15 @@ extension KeyframeGroup: DictionaryInitializable where T: AnyInitializable {
     {
       keyframes = [Keyframe<T>(value)]
     } else {
-      var frameDictionaries: [[String: Any]]
-      if let singleFrameDictionary = dictionary[KeyframeWrapperKey.keyframeData.rawValue] as? [String: Any] {
-        frameDictionaries = [singleFrameDictionary]
-      } else {
-        frameDictionaries = try dictionary.value(for: KeyframeWrapperKey.keyframeData)
-      }
+      let frameDictionaries: [[String: Any]] =
+        if
+          let singleFrameDictionary =
+          dictionary[KeyframeWrapperKey.keyframeData.rawValue] as? [String: Any]
+        {
+          [singleFrameDictionary]
+        } else {
+          try dictionary.value(for: KeyframeWrapperKey.keyframeData)
+        }
       var previousKeyframeData: KeyframeData<T>?
       for frameDictionary in frameDictionaries {
         let data = try KeyframeData<T>(dictionary: frameDictionary)
@@ -166,7 +167,7 @@ extension KeyframeGroup: DictionaryInitializable where T: AnyInitializable {
           let value: T = data.startValue ?? previousKeyframeData?.endValue,
           let time = data.time
         else {
-          throw InitializableError.invalidInput
+          throw InitializableError.invalidInput()
         }
         keyframes.append(Keyframe<T>(
           value: value,
@@ -189,7 +190,7 @@ extension KeyframeGroup: DictionaryInitializable where T: AnyInitializable {
 // MARK: Equatable
 
 extension KeyframeGroup: Equatable where T: Equatable {
-  static func == (_ lhs: KeyframeGroup<T>, _ rhs: KeyframeGroup<T>) -> Bool {
+  static func ==(_ lhs: KeyframeGroup<T>, _ rhs: KeyframeGroup<T>) -> Bool {
     lhs.keyframes == rhs.keyframes
   }
 }

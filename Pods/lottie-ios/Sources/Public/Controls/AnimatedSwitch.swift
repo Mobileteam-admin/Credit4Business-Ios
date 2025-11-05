@@ -5,8 +5,6 @@
 //  Created by Brandon Withrow on 2/4/19.
 //
 
-import Foundation
-
 #if canImport(UIKit)
 import UIKit
 #elseif canImport(AppKit)
@@ -114,10 +112,13 @@ open class AnimatedSwitch: AnimatedControl {
   }
 
   /// The cancel behavior for the switch. See CancelBehavior for options
-  public var cancelBehavior: CancelBehavior = .reverse
+  public var cancelBehavior = CancelBehavior.reverse
 
   /// If `false` the switch will not play the animation when changing between animations.
   public var animateUpdateWhenChangingAnimation = true
+
+  /// A closure that is called when the `isOn` state is updated
+  public var stateUpdated: ((_ isOn: Bool) -> Void)?
 
   #if canImport(UIKit)
   public override var accessibilityTraits: UIAccessibilityTraits {
@@ -125,9 +126,6 @@ open class AnimatedSwitch: AnimatedControl {
     get { super.accessibilityTraits.union(.button) }
   }
   #endif
-
-  /// A closure that is called when the `isOn` state is updated
-  public var stateUpdated: ((_ isOn: Bool) -> Void)?
 
   /// The current state of the switch.
   public var isOn: Bool {
@@ -211,12 +209,12 @@ open class AnimatedSwitch: AnimatedControl {
       toProgress: endProgress,
       loopMode: LottieLoopMode.playOnce,
       completion: { [weak self] finished in
-        guard let self = self else { return }
+        guard let self else { return }
 
         // For the Main Thread rendering engine, we freeze the animation at the expected final progress
         // once the animation is complete. This isn't necessary on the Core Animation engine.
-        if finished, !(self.animationView.animationLayer is CoreAnimationLayer) {
-          self.animationView.currentProgress = finalProgress
+        if finished, !(animationView.animationLayer is CoreAnimationLayer) {
+          animationView.currentProgress = finalProgress
         }
       })
   }

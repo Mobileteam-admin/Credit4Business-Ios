@@ -5,7 +5,6 @@
 //  Created by Brandon Withrow on 1/30/19.
 //
 
-import Foundation
 import QuartzCore
 
 /// The base layer that holds Shapes and Shape Renderers
@@ -16,12 +15,12 @@ class ShapeContainerLayer: CALayer {
   override init() {
     super.init()
     actions = [
-      "position" : NSNull(),
-      "bounds" : NSNull(),
-      "anchorPoint" : NSNull(),
-      "transform" : NSNull(),
-      "opacity" : NSNull(),
-      "hidden" : NSNull(),
+      "position": NSNull(),
+      "bounds": NSNull(),
+      "anchorPoint": NSNull(),
+      "transform": NSNull(),
+      "opacity": NSNull(),
+      "hidden": NSNull(),
     ]
   }
 

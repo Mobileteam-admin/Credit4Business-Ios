@@ -5,26 +5,25 @@
 //  Created by Brandon Withrow on 1/25/19.
 //
 
-import Foundation
 import QuartzCore
 
 extension MaskMode {
   var usableMode: MaskMode {
     switch self {
     case .add:
-      return .add
+      .add
     case .subtract:
-      return .subtract
+      .subtract
     case .intersect:
-      return .intersect
+      .intersect
     case .lighten:
-      return .add
+      .add
     case .darken:
-      return .darken
+      .darken
     case .difference:
-      return .intersect
+      .intersect
     case .none:
-      return .none
+      .none
     }
   }
 }
@@ -109,7 +108,7 @@ private class MaskLayer: CALayer {
       : .rgb(0, 1, 0)
     maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
     actions = [
-      "opacity" : NSNull(),
+      "opacity": NSNull(),
     ]
   }
 
@@ -129,7 +128,7 @@ private class MaskLayer: CALayer {
   let maskLayer = CAShapeLayer()
 
   func updateWithFrame(frame: CGFloat, forceUpdates: Bool) {
-    guard let properties = properties else { return }
+    guard let properties else { return }
     if properties.opacity.needsUpdate(frame: frame) || forceUpdates {
       properties.opacity.update(frame: frame)
       opacity = Float(properties.opacity.value.cgFloatValue)
@@ -169,9 +168,9 @@ private class MaskNodeProperties: NodePropertyMap {
     shape = NodeProperty(provider: KeyframeInterpolator(keyframes: mask.shape.keyframes))
     expansion = NodeProperty(provider: KeyframeInterpolator(keyframes: mask.expansion.keyframes))
     propertyMap = [
-      PropertyName.opacity.rawValue : opacity,
-      "Shape" : shape,
-      "Expansion" : expansion,
+      PropertyName.opacity.rawValue: opacity,
+      "Shape": shape,
+      "Expansion": expansion,
     ]
     properties = Array(propertyMap.values)
   }
