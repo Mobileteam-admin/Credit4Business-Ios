@@ -1,0 +1,6 @@
+framework module Pods_Credit4Business {
+  umbrella header "Pods-Credit4Business-umbrella.h"
+
+  export *
+  module * { export * }
+}

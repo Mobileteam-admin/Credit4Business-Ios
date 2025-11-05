@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "formkit_eyeclosed.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
