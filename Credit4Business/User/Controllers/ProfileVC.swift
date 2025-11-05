@@ -984,6 +984,7 @@ extension ProfileVC : UICollectionViewDelegate,UICollectionViewDataSource{
             self.selectedIndex = indexPath.row
             self.headersCollection.reloadData()
             self.pendingApprovalsView.isHidden = true
+            self.noDataFoundLabel.isHidden = true
 
             //            switch self.selectedIndex {
             self.tabSelected = false

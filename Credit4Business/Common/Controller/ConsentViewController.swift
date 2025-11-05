@@ -227,8 +227,14 @@ class ConsentViewController: UIViewController {
         }
         self.skipButton.addTapGestureRecognizer {
             //self.updateModel()
-            var vc = DocumentUploadViewController.initWithStory(loanId: self.loanId)
-            self.navigationController?.pushViewController(vc, animated: true)
+            if self.delegate != nil {
+                            self.delegate?.reload()
+                            self.dismiss(animated: true)
+                        }else {
+                            var vc = DocumentUploadViewController.initWithStory(loanId: self.loanId)
+                            self.navigationController?.pushViewController(vc, animated: true)
+
+                        }
         }
         self.backButton.addTapGestureRecognizer {
             var model = GlobalFundingModelObject.business

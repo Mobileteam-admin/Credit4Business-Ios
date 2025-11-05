@@ -63,6 +63,9 @@ class DashboardVC: UIViewController {
         super.viewWillAppear(animated)
         self.currentTripPageIndex = 0
         self.HittedTripPageIndex = 0
+        self.leadsModel.removeAll()
+        self.searchList.removeAll()
+        self.agentNotificationData.removeAll()
         self.fetchLeadsDetails()
         self.fetchAgentNotificationsDetails()
         self.fetchKPIDetails()

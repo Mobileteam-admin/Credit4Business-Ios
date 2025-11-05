@@ -320,7 +320,7 @@ class ProfileDetailsVC: UIViewController, CellDelegate {
                   // }else{
                        self.fetchGocardlessStatementDetails()
                   // }
-                   if self.step1TF.text != "" && self.requisitionLink != "" && self.isAgreed {
+                   if self.step1TF.text != "" && self.requisitionLink != "" && self.isAgreed && !self.step1Stack.isHidden {
                        let attributedTitle = NSMutableAttributedString(string: "Completed", attributes: [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 9.0), NSAttributedString.Key.foregroundColor: UIColor(named: "yellow")])
 
                        self.step1StatusButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -506,7 +506,7 @@ class ProfileDetailsVC: UIViewController, CellDelegate {
                                 self.generateRegenerateBtn.setAttributedTitle(attributedTitle, for: .normal)
 
                             }
-                            if self.requisitionLink != "" && self.isAgreed {
+                            if self.requisitionLink != "" && self.isAgreed && !self.step1Stack.isHidden {
                                 let attributedTitle = NSMutableAttributedString(string: "Completed", attributes: [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 9.0), NSAttributedString.Key.foregroundColor: UIColor(named: "yellow")])
 
                                 self.step1StatusButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -696,7 +696,7 @@ class ProfileDetailsVC: UIViewController, CellDelegate {
             switch result {
             case .success(let data):
                 if data.statusCode == 200 {
-                    self.step2Stack.isHidden = false
+                    self.step2Stack.isHidden = self.step1Stack.isHidden ? true : false
                     self.requisitionStack.isHidden = false
                     self.step3Stack.isHidden = true
                     self.step2DropDown.isHidden = true
@@ -885,8 +885,11 @@ extension ProfileDetailsVC : UICollectionViewDelegate,UICollectionViewDataSource
                 self.countryCodeStack.isHidden = true
                 self.addBankAccountBtn.isHidden = true
                 self.documentStack.isHidden = true
-                var loansta = self.loanData?.customer.loanDetails.filter({$0.loanID == self.loanData?.id}).first?.currentStatus
-                if loansta != "Agent_Submitted" && loansta != "Underwriter_Submitted" && loansta != "Admin_Cash_Disbursed" {
+//                var loansta = self.loanData?.customer.loanDetails.filter({$0.loanID == self.loanData?.id}).first?.currentStatus
+//                if loansta != "Agent_Submitted" && loansta != "Underwriter_Submitted" && loansta != "Admin_Cash_Disbursed" {
+                var loansta = self.loanData?.customer.loanDetails.filter({$0.loanID == self.loanData?.id}).first?.currentStatus.lowercased() ?? ""
+                //                if loansta != "Agent_Submitted" && loansta != "Underwriter_Submitted" && loansta != "Admin_Cash_Disbursed" {
+                                    if loansta.contains("rejected") || loansta.contains("inprogress") {
                     self.agreementStack.isHidden = false
                     self.bankNumberStack.isHidden = self.isAgreed
                     self.accountNumberStack.isHidden = self.isAgreed

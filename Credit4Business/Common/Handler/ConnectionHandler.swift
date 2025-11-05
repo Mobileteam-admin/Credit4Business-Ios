@@ -203,6 +203,9 @@ final class ConnectionHandler : NSObject {
             // UIApplication.shared.beginIgnoringInteractionEvents()
             UIApplication.shared.windows.last?.isUserInteractionEnabled = false
         }
+        if isToShowProgress {
+                   AppLoader.shared.addLoader()
+               }
         var token = UserDefaults.standard.value(forKey: "access") as? String
 
         var headers = HTTPHeaders()
@@ -235,6 +238,9 @@ final class ConnectionHandler : NSObject {
            
             switch resp.result {
             case .success(let data):
+                if isToShowProgress {
+                                    AppLoader.shared.removeLoader()
+                                }
                 if isToStopInteraction {
                     //UIApplication.shared.endIgnoringInteractionEvents()
                     UIApplication.shared.windows.last?.isUserInteractionEnabled = true
@@ -280,6 +286,9 @@ final class ConnectionHandler : NSObject {
             // UIApplication.shared.beginIgnoringInteractionEvents()
             UIApplication.shared.windows.last?.isUserInteractionEnabled = false
         }
+        if isToShowProgress {
+                  AppLoader.shared.addLoader()
+              }
         var token = UserDefaults.standard.value(forKey: "access") as? String
 
         var headers = HTTPHeaders()
@@ -330,6 +339,9 @@ final class ConnectionHandler : NSObject {
            
             switch resp.result {
             case .success(let data):
+                if isToShowProgress {
+                                   AppLoader.shared.removeLoader()
+                               }
                 if isToStopInteraction {
                     //UIApplication.shared.endIgnoringInteractionEvents()
                     UIApplication.shared.windows.last?.isUserInteractionEnabled = true
@@ -375,6 +387,9 @@ final class ConnectionHandler : NSObject {
             // UIApplication.shared.beginIgnoringInteractionEvents()
             UIApplication.shared.windows.last?.isUserInteractionEnabled = false
         }
+        if isToShowProgress {
+                    AppLoader.shared.addLoader()
+                }
         var token = UserDefaults.standard.value(forKey: "access") as? String
 
         var headers = HTTPHeaders()
@@ -408,6 +423,9 @@ final class ConnectionHandler : NSObject {
            
             switch resp.result {
             case .success(let data):
+                if isToShowProgress {
+                                  AppLoader.shared.removeLoader()
+                              }
                 if isToStopInteraction {
                     //UIApplication.shared.endIgnoringInteractionEvents()
                     UIApplication.shared.windows.last?.isUserInteractionEnabled = true

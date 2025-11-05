@@ -442,9 +442,9 @@ struct DocumentsDataResponse: Codable {
 // MARK: - DataClass
 struct DocumentsDataClass: Codable {
     let id: Int
-    let photo, passport, utilityBillOfTradingBusiness,leaseDeed: String?
+    let photo, passport, utilityBillOfTradingBusiness,leaseDeed: [MultipleDocumentsDataClass]?
     let businessAccountStatement,otherFiles: [MultipleDocumentsDataClass]?
-    let drivingLicense,councilTax : String?
+    let drivingLicense,councilTax : [MultipleDocumentsDataClass]?
     let documentUploadSelfDeclaration, isIdentityVerified: Bool
 
     enum CodingKeys: String, CodingKey {

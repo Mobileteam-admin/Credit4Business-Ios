@@ -109,14 +109,36 @@ class DocumentUploadViewController: UIViewController {
     @IBOutlet weak var agreementErrStack: UIStackView!
     @IBOutlet weak var pageControl: CustomPageControl!
     
+    @IBOutlet weak var photoTable: UITableView!
+    @IBOutlet weak var passportTable: UITableView!
+    @IBOutlet weak var utilityTable: UITableView!
     @IBOutlet weak var otherTable: UITableView!
     @IBOutlet weak var accountsTable: UITableView!
+    @IBOutlet weak var leaseTable: UITableView!
+    @IBOutlet weak var licenseTable: UITableView!
+    @IBOutlet weak var councilTable: UITableView!
+
     @IBOutlet weak var commentButton: UIImageView!
+    
     @IBOutlet weak var accountTableHeight: NSLayoutConstraint!
     @IBOutlet weak var otherTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var photoTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var passportTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var utilityTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var leaseTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var licenseTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var councilTableHeight: NSLayoutConstraint!
+
     var otherArray = [UploadDocumentModel]()
     var bankStatementArray = [UploadDocumentModel]()
-    
+    var photoArray = [UploadDocumentModel]()
+    var passportArray = [UploadDocumentModel]()
+    var utilityArray = [UploadDocumentModel]()
+    var leaseArray = [UploadDocumentModel]()
+    var licenseArray = [UploadDocumentModel]()
+    var councilArray = [UploadDocumentModel]()
+
+
     //MARK: -------------------- Class Variable --------------------
     var photoFileUploadStr = ""
     var passportFileUploadStr = ""
@@ -183,7 +205,7 @@ class DocumentUploadViewController: UIViewController {
     override
     func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         if UserDefaults.standard.value(forKey: "role") as? String != "" && isFromIncomplete {
             self.fetchUploadedDocuments()
         }
@@ -196,7 +218,7 @@ class DocumentUploadViewController: UIViewController {
     override
     func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.isEnabled = false
     }
    //---------------------------------------
    // MARK: - Init With Story
@@ -227,14 +249,21 @@ class DocumentUploadViewController: UIViewController {
 //        self.otherFileUploadView.layer.borderColor = UIColor(named: "grayborder")?.cgColor
         self.pageControl.numberOfPages = 9
         self.setPagNumber(currentPage: 5)
-        self.selectedPhotoView.isHidden = true
-        self.selectedBillView.isHidden = true
-        self.selectedPremiseView.isHidden = true
+//        self.selectedPhotoView.isHidden = true
+//        self.selectedBillView.isHidden = true
+//        self.selectedPremiseView.isHidden = true
         self.accountsTable.isHidden = true
         self.otherTable.isHidden = true
-        self.selectedPassportView.isHidden = true
-        self.selectedDrivingLicenseView.isHidden = true
-        self.selectedCouncilTaxView.isHidden = true
+        self.photoTable.isHidden = true
+        self.passportTable.isHidden = true
+        self.utilityTable.isHidden = true
+        self.leaseTable.isHidden = true
+        self.licenseTable.isHidden = true
+        self.councilTable.isHidden = true
+
+//        self.selectedPassportView.isHidden = true
+//        self.selectedDrivingLicenseView.isHidden = true
+//        self.selectedCouncilTaxView.isHidden = true
     }
     func setDelegates()
     {
@@ -242,6 +271,24 @@ class DocumentUploadViewController: UIViewController {
         self.otherTable.dataSource = self
         self.accountsTable.delegate = self
         self.accountsTable.dataSource = self
+        self.photoTable.delegate = self
+        self.photoTable.dataSource = self
+        
+        self.passportTable.delegate = self
+        self.passportTable.dataSource = self
+
+        self.utilityTable.delegate = self
+        self.utilityTable.dataSource = self
+
+        self.leaseTable.delegate = self
+        self.leaseTable.dataSource = self
+
+        self.licenseTable.delegate = self
+        self.licenseTable.dataSource = self
+
+        self.councilTable.delegate = self
+        self.councilTable.dataSource = self
+
     }
     func setPagNumber(currentPage : Int) {
         self.pageControl.currentPage = currentPage
@@ -253,56 +300,56 @@ class DocumentUploadViewController: UIViewController {
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
         }
-        self.selectedPhotoClose.addTapGestureRecognizer {
-            self.photoFileUploadStr = ""
-            self.selectedPhotoView.isHidden = true
-            self.selectedPhotoFileName.text = ""
-        }
+//        self.selectedPhotoClose.addTapGestureRecognizer {
+//            self.photoFileUploadStr = ""
+//            self.selectedPhotoView.isHidden = true
+//            self.selectedPhotoFileName.text = ""
+//        }
         self.photoFileUploadButton.addTapGestureRecognizer {
             self.documentType = .Photo
             self.redirectToImageChooseVC(isPhoto: false, isUtility: false)
         }
-    self.selectedPassportClose.addTapGestureRecognizer {
-        self.passportFileUploadStr = ""
-        self.selectedPassportView.isHidden = true
-        self.selectedPassportFileName.text = ""
-    }
+//    self.selectedPassportClose.addTapGestureRecognizer {
+//        self.passportFileUploadStr = ""
+//        self.selectedPassportView.isHidden = true
+//        self.selectedPassportFileName.text = ""
+//    }
         self.passportFileUploadButton.addTapGestureRecognizer {
             self.documentType = .Passport
             self.redirectToImageChooseVC(isPhoto: false, isUtility: false)
         }
-        self.selectedDrivingLicenseClose.addTapGestureRecognizer {
-            self.drivingLicenseFileUploadStr = ""
-            self.selectedDrivingLicenseView.isHidden = true
-            self.selectedDrivingLicenseFileName.text = ""
-        }
+//        self.selectedDrivingLicenseClose.addTapGestureRecognizer {
+//            self.drivingLicenseFileUploadStr = ""
+//            self.selectedDrivingLicenseView.isHidden = true
+//            self.selectedDrivingLicenseFileName.text = ""
+//        }
             self.drivingLicenseFileUploadButton.addTapGestureRecognizer {
                 self.documentType = .DrivingLicense
                 self.redirectToImageChooseVC(isPhoto: false, isUtility: false)
             }
-        self.selectedCouncilTaxClose.addTapGestureRecognizer {
-            self.councilTaxFileUploadStr = ""
-            self.selectedCouncilTaxView.isHidden = true
-            self.selectedCouncilTaxFileName.text = ""
-        }
+//        self.selectedCouncilTaxClose.addTapGestureRecognizer {
+//            self.councilTaxFileUploadStr = ""
+//            self.selectedCouncilTaxView.isHidden = true
+//            self.selectedCouncilTaxFileName.text = ""
+//        }
             self.councilTaxFileUploadButton.addTapGestureRecognizer {
                 self.documentType = .CouncilTax
                 self.redirectToImageChooseVC(isPhoto: false, isUtility: true)
             }
-    self.selectedBillClose.addTapGestureRecognizer {
-        self.billFileUploadStr = ""
-        self.selectedBillView.isHidden = true
-        self.selectedBillFileName.text = ""
-    }
+//    self.selectedBillClose.addTapGestureRecognizer {
+//        self.billFileUploadStr = ""
+//        self.selectedBillView.isHidden = true
+//        self.selectedBillFileName.text = ""
+//    }
         self.billFileUploadButton.addTapGestureRecognizer {
             self.documentType = .Bill
             self.redirectToImageChooseVC(isPhoto: false, isUtility: true)
         }
-        self.selectedPremiseClose.addTapGestureRecognizer {
-            self.premiseFileUploadStr = ""
-            self.selectedPremiseView.isHidden = true
-            self.selectedPremiseFileName.text = ""
-        }
+//        self.selectedPremiseClose.addTapGestureRecognizer {
+//            self.premiseFileUploadStr = ""
+//            self.selectedPremiseView.isHidden = true
+//            self.selectedPremiseFileName.text = ""
+//        }
 
         self.premiseFileUploadButton.addTapGestureRecognizer {
             self.documentType = .Premise
@@ -358,29 +405,58 @@ class DocumentUploadViewController: UIViewController {
     }
     func showModelValues() {
         var item = self.selectedDocumentsResponse
-        if item?.photo != "" {
-            self.selectedPhotoView.isHidden = false
-            self.selectedPhotoFileName.text = URL(fileURLWithPath: item?.photo ?? "").deletingPathExtension().lastPathComponent
-            self.photoFileName = URL(fileURLWithPath: item?.photo ?? "").deletingPathExtension().lastPathComponent
-            self.photoFileUploadStr = item?.photo ?? ""
+        
+        if item?.photo?.count ?? 0 > 0 {
+            self.photoTable.isHidden = false
+            guard let array = item?.photo else{
+                return
+            }
+            self.photoArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.photoArray.append(obj)
+            }
+            self.photoTable.reloadData()
         }
-        if item?.passport != "" {
-            self.selectedPassportView.isHidden = false
-            self.selectedPassportFileName.text = URL(fileURLWithPath: item?.passport ?? "").deletingPathExtension().lastPathComponent
-            self.passportFileName = URL(fileURLWithPath: item?.passport ?? "").deletingPathExtension().lastPathComponent
-            self.passportFileUploadStr = item?.passport ?? ""
+        if item?.passport?.count ?? 0 > 0 {
+            self.passportTable.isHidden = false
+            guard let array = item?.passport else{
+                return
+            }
+            self.passportArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.passportArray.append(obj)
+            }
+            self.passportTable.reloadData()
         }
-        if item?.utilityBillOfTradingBusiness != "" {
-            self.selectedBillView.isHidden = false
-            self.selectedBillFileName.text = URL(fileURLWithPath: item?.utilityBillOfTradingBusiness ?? "").deletingPathExtension().lastPathComponent
-            self.billFileName = URL(fileURLWithPath: item?.utilityBillOfTradingBusiness ?? "").deletingPathExtension().lastPathComponent
-            self.billFileUploadStr = item?.utilityBillOfTradingBusiness ?? ""
+        if item?.utilityBillOfTradingBusiness?.count ?? 0 > 0 {
+            self.utilityTable.isHidden = false
+            guard let array = item?.utilityBillOfTradingBusiness else{
+                return
+            }
+            self.utilityArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.utilityArray.append(obj)
+            }
+            self.utilityTable.reloadData()
         }
-        if item?.leaseDeed != "" {
-            self.selectedPremiseView.isHidden = false
-            self.selectedPremiseFileName.text = URL(fileURLWithPath: item?.leaseDeed ?? "").deletingPathExtension().lastPathComponent
-            self.premiseFileName = URL(fileURLWithPath: item?.leaseDeed ?? "").deletingPathExtension().lastPathComponent
-            self.premiseFileUploadStr = item?.leaseDeed ?? ""
+        if item?.leaseDeed?.count ?? 0 > 0 {
+            self.leaseTable.isHidden = false
+            guard let array = item?.leaseDeed else{
+                return
+            }
+            self.leaseArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.leaseArray.append(obj)
+            }
+            self.leaseTable.reloadData()
         }
         if item?.businessAccountStatement?.count ?? 0 > 0 {
             self.accountsTable.isHidden = false
@@ -408,17 +484,31 @@ class DocumentUploadViewController: UIViewController {
             }
             self.otherTable.reloadData()
         }
-        if item?.drivingLicense != "" {
-            self.selectedDrivingLicenseView.isHidden = false
-            self.selectedDrivingLicenseFileName.text = URL(fileURLWithPath: item?.drivingLicense ?? "").deletingPathExtension().lastPathComponent
-            self.drivingLicenseFileName = URL(fileURLWithPath: item?.drivingLicense ?? "").deletingPathExtension().lastPathComponent
-            self.drivingLicenseFileUploadStr = item?.drivingLicense ?? ""
+        if item?.drivingLicense?.count ?? 0 > 0 {
+            self.licenseTable.isHidden = false
+            guard let array = item?.drivingLicense else{
+                return
+            }
+            self.licenseArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.licenseArray.append(obj)
+            }
+            self.licenseTable.reloadData()
         }
-        if item?.councilTax != "" {
-            self.selectedCouncilTaxView.isHidden = false
-            self.selectedCouncilTaxFileName.text = URL(fileURLWithPath: item?.councilTax ?? "").deletingPathExtension().lastPathComponent
-            self.councilTaxFileName = URL(fileURLWithPath: item?.councilTax ?? "").deletingPathExtension().lastPathComponent
-            self.councilTaxFileUploadStr = item?.councilTax ?? ""
+        if item?.councilTax?.count ?? 0 > 0 {
+            self.councilTable.isHidden = false
+            guard let array = item?.councilTax else{
+                return
+            }
+            self.councilArray.removeAll()
+            for element in array {
+                var filename = URL(fileURLWithPath: element.file).deletingPathExtension().lastPathComponent
+                var obj = UploadDocumentModel(data: Data(), fileName: filename, mimeType: "", fileType: "")
+                self.councilArray.append(obj)
+            }
+            self.councilTable.reloadData()
         }
         if item?.documentUploadSelfDeclaration != nil {
             self.isAgreed = item?.documentUploadSelfDeclaration ?? false
@@ -474,14 +564,14 @@ class DocumentUploadViewController: UIViewController {
         model.documents = initial
         
         var dataArray = [String: Any]()
-        dataArray["photo"] = UploadDocumentModel(data: self.photoFileUploadData, fileName: self.photoFileName, mimeType: self.photoFileUploadMIME, fileType: self.photoFileUploadType)
-        dataArray["passport"] = UploadDocumentModel(data: self.passportFileUploadData, fileName: self.passportFileName, mimeType: self.passportFileUploadMIME, fileType: self.passportFileUploadType)
-        dataArray["utility_bill"] = UploadDocumentModel(data: self.billFileUploadData, fileName: self.billFileName, mimeType: self.billFileUploadMIME, fileType: self.billFileUploadType)
-        dataArray["lease_deed"] = UploadDocumentModel(data: self.premiseFileUploadData, fileName: self.premiseFileName, mimeType: self.premiseFileUploadMIME, fileType: self.premiseFileUploadType)
+        dataArray["photo"] = self.photoArray//UploadDocumentModel(data: self.photoFileUploadData, fileName: self.photoFileName, mimeType: self.photoFileUploadMIME, fileType: self.photoFileUploadType)
+        dataArray["passport"] = self.passportArray//UploadDocumentModel(data: self.passportFileUploadData, fileName: self.passportFileName, mimeType: self.passportFileUploadMIME, fileType: self.passportFileUploadType)
+        dataArray["utility_bill"] = self.utilityArray//UploadDocumentModel(data: self.billFileUploadData, fileName: self.billFileName, mimeType: self.billFileUploadMIME, fileType: self.billFileUploadType)
+        dataArray["lease_deed"] = self.leaseArray//UploadDocumentModel(data: self.premiseFileUploadData, fileName: self.premiseFileName, mimeType: self.premiseFileUploadMIME, fileType: self.premiseFileUploadType)
         dataArray["business_account_statements"] = self.bankStatementArray//UploadDocumentModel(data: self.accountFileUploadData, fileName: self.accountFileName, mimeType: self.accountFileUploadMIME, fileType: self.accountFileUploadType)
         dataArray["other_files"] = self.otherArray //UploadDocumentModel(data: self.otherFileUploadData, fileName: self.otherFileName, mimeType: self.otherFileUploadMIME, fileType: self.otherFileUploadType)
-        dataArray["driving_license"] = UploadDocumentModel(data: self.drivingLicenseFileUploadData, fileName: self.drivingLicenseFileName, mimeType: self.drivingLicenseFileUploadMIME, fileType: self.drivingLicenseFileUploadType)
-        dataArray["council_tax"] = UploadDocumentModel(data: self.councilTaxFileUploadData, fileName: self.councilTaxFileName, mimeType: self.councilTaxFileUploadMIME, fileType: self.councilTaxFileUploadType)
+        dataArray["driving_license"] = self.licenseArray//UploadDocumentModel(data: self.drivingLicenseFileUploadData, fileName: self.drivingLicenseFileName, mimeType: self.drivingLicenseFileUploadMIME, fileType: self.drivingLicenseFileUploadType)
+        dataArray["council_tax"] = self.councilArray//UploadDocumentModel(data: self.councilTaxFileUploadData, fileName: self.councilTaxFileName, mimeType: self.councilTaxFileUploadMIME, fileType: self.councilTaxFileUploadType)
 
         var dict = [String:Any]()
         dict["document_upload_self_declaration"] = "True"
@@ -810,29 +900,33 @@ extension DocumentUploadViewController: UIImagePickerControllerDelegate , UINavi
         }
         switch self.documentType{
         case .Photo:
-            self.selectedPhotoClose.isHidden = false
-            self.selectedPhotoFileName.text = imageName
-            self.photoFileUploadStr = imageStr
-//            self.photoFileUploadButton.isHidden = true
-            self.photoFileUploadErrStack.isHidden = true
+//            self.selectedPhotoClose.isHidden = false
+//            self.selectedPhotoFileName.text = imageName
+//            self.photoFileUploadStr = imageStr
+////            self.photoFileUploadButton.isHidden = true
+//            self.photoFileUploadErrStack.isHidden = true
+            break
         case .Passport:
-            self.selectedPassportClose.isHidden = false
-            self.selectedPassportFileName.text = imageName
-            self.passportFileUploadStr = imageStr
-//            self.passportFileUploadButton.isHidden = true
-            self.passportFileUploadErrStack.isHidden = true
+//            self.selectedPassportClose.isHidden = false
+//            self.selectedPassportFileName.text = imageName
+//            self.passportFileUploadStr = imageStr
+////            self.passportFileUploadButton.isHidden = true
+//            self.passportFileUploadErrStack.isHidden = true
+            break
         case .Bill:
-            self.selectedBillClose.isHidden = false
-            self.selectedBillFileName.text = imageName
-            self.billFileUploadStr = imageStr
-//            self.billFileUploadButton.isHidden = true
-            self.billFileUploadErrStack.isHidden = true
+//            self.selectedBillClose.isHidden = false
+//            self.selectedBillFileName.text = imageName
+//            self.billFileUploadStr = imageStr
+////            self.billFileUploadButton.isHidden = true
+//            self.billFileUploadErrStack.isHidden = true
+            break
         case .Premise:
-            self.selectedPremiseClose.isHidden = false
-            self.selectedPremiseFileName.text = imageName
-            self.premiseFileUploadStr = imageStr
-//            self.premiseFileUploadButton.isHidden = true
-            self.premiseFileUploadErrStack.isHidden = true
+//            self.selectedPremiseClose.isHidden = false
+//            self.selectedPremiseFileName.text = imageName
+//            self.premiseFileUploadStr = imageStr
+////            self.premiseFileUploadButton.isHidden = true
+//            self.premiseFileUploadErrStack.isHidden = true
+            break
         case .Account:
 //            self.selectedAccountClose.isHidden = false
 //            self.selectedAccountFileName.text = imageName
@@ -848,17 +942,19 @@ extension DocumentUploadViewController: UIImagePickerControllerDelegate , UINavi
 //            self.otherFileUploadErrStack.isHidden = true
             break
         case .DrivingLicense:
-            self.selectedDrivingLicenseClose.isHidden = false
-            self.selectedDrivingLicenseFileName.text = imageName
-            self.drivingLicenseFileUploadStr = imageStr
-//            self.otherFileUploadButton.isHidden = true
-            self.drivingLicenseFileUploadErrStack.isHidden = true
+//            self.selectedDrivingLicenseClose.isHidden = false
+//            self.selectedDrivingLicenseFileName.text = imageName
+//            self.drivingLicenseFileUploadStr = imageStr
+////            self.otherFileUploadButton.isHidden = true
+//            self.drivingLicenseFileUploadErrStack.isHidden = true
+            break
         case .CouncilTax:
-            self.selectedCouncilTaxClose.isHidden = false
-            self.selectedCouncilTaxFileName.text = imageName
-            self.councilTaxFileUploadStr = imageStr
-//            self.otherFileUploadButton.isHidden = true
-            self.councilTaxFileUploadErrStack.isHidden = true
+//            self.selectedCouncilTaxClose.isHidden = false
+//            self.selectedCouncilTaxFileName.text = imageName
+//            self.councilTaxFileUploadStr = imageStr
+////            self.otherFileUploadButton.isHidden = true
+//            self.councilTaxFileUploadErrStack.isHidden = true
+            break
         default: break
         }
     }
@@ -920,7 +1016,7 @@ extension DocumentUploadViewController : UIDocumentPickerDelegate {
         }else{
             let document = url.lastPathComponent.components(separatedBy: ".")
             let fileName = "\(document[0])"
-            let fileType = "\(document[1])"
+            let fileType = document.last?.description ?? ""//"\(document[1])"
             let fileMIMEType = self.mimeTypeForPath(fileType: fileType)
 
             print(fileName)
@@ -932,75 +1028,110 @@ extension DocumentUploadViewController : UIDocumentPickerDelegate {
                 let fileStream:String = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
                 switch self.documentType{
                 case .Photo:
-                    self.selectedPhotoView.isHidden = false
-                    self.selectedPhotoFileName.text = fileName + "." + fileType
+//                    self.selectedPhotoView.isHidden = false
+//                    self.selectedPhotoFileName.text = fileName + "." + fileType
+                    self.photoTable.isHidden = false
+
                     self.photoFileName = fileName + "." + fileType
                     //self.photoFileUploadLabel.text = fileName + "." + fileType
-                    self.photoFileUploadStr = fileStream
+                    //self.photoFileUploadStr = fileStream
                     self.photoFileUploadData = fileData
                     self.photoFileUploadMIME = fileMIMEType
                     self.photoFileUploadType = fileType
 //                    self.photoFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.photoFileUploadData, fileName: self.photoFileName, mimeType: self.photoFileUploadMIME, fileType: self.photoFileUploadType)
+                    self.photoArray.append(obj)
+                    self.photoTable.reloadData()
+
                     self.photoFileUploadErrStack.isHidden = true
+                    
+
                 case .Passport:
-                    self.selectedPassportView.isHidden = false
-                    self.selectedPassportFileName.text = fileName + "." + fileType
+//                    self.selectedPassportView.isHidden = false
+//                    self.selectedPassportFileName.text = fileName + "." + fileType
+                    self.passportTable.isHidden = false
+
                     self.passportFileName = fileName + "." + fileType
                    // self.passportFileUploadLabel.text = fileName + "." + fileType
-                    self.passportFileUploadStr = fileStream
+                   // self.passportFileUploadStr = fileStream
                     self.passportFileUploadData = fileData
                     self.passportFileUploadMIME = fileMIMEType
                     self.passportFileUploadType = fileType
 
 //                    self.passportFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.passportFileUploadData, fileName: self.passportFileName, mimeType: self.passportFileUploadMIME, fileType: self.passportFileUploadType)
+                    self.passportArray.append(obj)
+                    self.passportTable.reloadData()
+
                     self.passportFileUploadErrStack.isHidden = true
                 case .DrivingLicense:
-                    self.selectedDrivingLicenseView.isHidden = false
-                    self.selectedDrivingLicenseFileName.text = fileName + "." + fileType
+                    self.licenseTable.isHidden = false
+
+//                    self.selectedDrivingLicenseView.isHidden = false
+//                    self.selectedDrivingLicenseFileName.text = fileName + "." + fileType
                     self.drivingLicenseFileName = fileName + "." + fileType
                    // self.passportFileUploadLabel.text = fileName + "." + fileType
-                    self.drivingLicenseFileUploadStr = fileStream
+                   // self.drivingLicenseFileUploadStr = fileStream
                     self.drivingLicenseFileUploadData = fileData
                     self.drivingLicenseFileUploadMIME = fileMIMEType
                     self.drivingLicenseFileUploadType = fileType
 
 //                    self.passportFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.drivingLicenseFileUploadData, fileName: self.drivingLicenseFileName, mimeType: self.drivingLicenseFileUploadMIME, fileType: self.drivingLicenseFileUploadType)
+                    self.licenseArray.append(obj)
+                    self.licenseTable.reloadData()
+
                     self.drivingLicenseFileUploadErrStack.isHidden = true
                 case .CouncilTax:
-                    self.selectedCouncilTaxView.isHidden = false
-                    self.selectedCouncilTaxFileName.text = fileName + "." + fileType
+                    self.councilTable.isHidden = false
+
+//                    self.selectedCouncilTaxView.isHidden = false
+//                    self.selectedCouncilTaxFileName.text = fileName + "." + fileType
                     self.councilTaxFileName = fileName + "." + fileType
                    // self.passportFileUploadLabel.text = fileName + "." + fileType
-                    self.councilTaxFileUploadStr = fileStream
+                   // self.councilTaxFileUploadStr = fileStream
                     self.councilTaxFileUploadData = fileData
                     self.councilTaxFileUploadMIME = fileMIMEType
                     self.councilTaxFileUploadType = fileType
 
 //                    self.passportFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.councilTaxFileUploadData, fileName: self.councilTaxFileName, mimeType: self.councilTaxFileUploadMIME, fileType: self.councilTaxFileUploadType)
+                    self.councilArray.append(obj)
+                    self.councilTable.reloadData()
                     self.councilTaxFileUploadErrStack.isHidden = true
                 case .Bill:
-                    self.selectedBillView.isHidden = false
-                    self.selectedBillFileName.text = fileName + "." + fileType
+                    self.utilityTable.isHidden = false
+
+//                    self.selectedBillView.isHidden = false
+//                    self.selectedBillFileName.text = fileName + "." + fileType
                   //  self.billFileUploadLabel.text = fileName + "." + fileType
                     self.billFileName = fileName + "." + fileType
-                    self.billFileUploadStr = fileStream
+                    //self.billFileUploadStr = fileStream
                     self.billFileUploadData = fileData
                     self.billFileUploadMIME = fileMIMEType
                     self.billFileUploadType = fileType
 
 //                    self.billFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.billFileUploadData, fileName: self.billFileName, mimeType: self.billFileUploadMIME, fileType: self.billFileUploadType)
+                    self.utilityArray.append(obj)
+                    self.utilityTable.reloadData()
                     self.billFileUploadErrStack.isHidden = true
                 case .Premise:
-                    self.selectedPremiseView.isHidden = false
-                    self.selectedPremiseFileName.text = fileName + "." + fileType
+                    self.leaseTable.isHidden = false
+
+//                    self.selectedPremiseView.isHidden = false
+//                    self.selectedPremiseFileName.text = fileName + "." + fileType
                   //  self.premiseFileUploadLabel.text = fileName + "." + fileType
                     self.premiseFileName = fileName + "." + fileType
-                    self.premiseFileUploadStr = fileStream
+                   // self.premiseFileUploadStr = fileStream
                     self.premiseFileUploadData = fileData
                     self.premiseFileUploadMIME = fileMIMEType
                     self.premiseFileUploadType = fileType
 
 //                    self.premiseFileUploadButton.isHidden = true
+                    var obj = UploadDocumentModel(data: self.premiseFileUploadData, fileName: self.premiseFileName, mimeType: self.premiseFileUploadMIME, fileType: self.premiseFileUploadType)
+                    self.leaseArray.append(obj)
+                    self.leaseTable.reloadData()
                     self.premiseFileUploadErrStack.isHidden = true
                 case .Account:
                     self.accountsTable.isHidden = false
@@ -1046,7 +1177,26 @@ extension DocumentUploadViewController : UITableViewDelegate,UITableViewDataSour
             return self.otherArray.count
         }else if tableView == self.accountsTable {
             return self.bankStatementArray.count
-        }else{
+        }
+        else if tableView == self.photoTable {
+            return self.photoArray.count
+        }
+        else if tableView == self.passportTable {
+            return self.passportArray.count
+        }
+        else if tableView == self.utilityTable {
+            return self.utilityArray.count
+        }
+        else if tableView == self.leaseTable {
+            return self.leaseArray.count
+        }
+        else if tableView == self.licenseTable {
+            return self.licenseArray.count
+        }
+        else if tableView == self.councilTable {
+            return self.councilArray.count
+        }
+        else{
             return 0
         }
     }
@@ -1061,7 +1211,50 @@ extension DocumentUploadViewController : UITableViewDelegate,UITableViewDataSour
                 self.otherArray.remove(at: indexPath.row)
                 self.otherTable.reloadData()
             }
-        }else{
+        }
+        else if tableView == self.photoTable {
+            cell.fileName.text = self.photoArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.photoArray.remove(at: indexPath.row)
+                self.photoTable.reloadData()
+            }
+        }
+        else if tableView == self.passportTable {
+            cell.fileName.text = self.passportArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.passportArray.remove(at: indexPath.row)
+                self.passportTable.reloadData()
+            }
+        }
+        else if tableView == self.utilityTable {
+            cell.fileName.text = self.utilityArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.utilityArray.remove(at: indexPath.row)
+                self.utilityTable.reloadData()
+            }
+        }
+        else if tableView == self.leaseTable {
+            cell.fileName.text = self.leaseArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.leaseArray.remove(at: indexPath.row)
+                self.leaseTable.reloadData()
+            }
+        }
+        else if tableView == self.licenseTable {
+            cell.fileName.text = self.licenseArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.licenseArray.remove(at: indexPath.row)
+                self.licenseTable.reloadData()
+            }
+        }
+        else if tableView == self.councilTable {
+            cell.fileName.text = self.councilArray.value(atSafe: indexPath.row)?.fileName
+            cell.closeView.addTapGestureRecognizer {
+                self.councilArray.remove(at: indexPath.row)
+                self.councilTable.reloadData()
+            }
+        }
+        else{
             cell.fileName.text = self.bankStatementArray.value(atSafe: indexPath.row)?.fileName
             cell.closeView.addTapGestureRecognizer {
                 self.bankStatementArray.remove(at: indexPath.row)
@@ -1083,11 +1276,36 @@ extension DocumentUploadViewController {
         if let obj = object as? UITableView, obj == self.otherTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
             self.otherTableHeight.constant = newvalue.height
         }
+        if let obj = object as? UITableView, obj == self.photoTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.photoTableHeight.constant = newvalue.height
+        }
+        if let obj = object as? UITableView, obj == self.passportTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.passportTableHeight.constant = newvalue.height
+        }
+        if let obj = object as? UITableView, obj == self.utilityTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.utilityTableHeight.constant = newvalue.height
+        }
+        if let obj = object as? UITableView, obj == self.leaseTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.leaseTableHeight.constant = newvalue.height
+        }
+        if let obj = object as? UITableView, obj == self.licenseTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.licenseTableHeight.constant = newvalue.height
+        }
+        if let obj = object as? UITableView, obj == self.councilTable, (keyPath == "contentSize"), let newvalue = change?[.newKey] as? CGSize {
+            self.councilTableHeight.constant = newvalue.height
+        }
     }
     
     func addObserverOnHeightTbl() {
         self.accountsTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.otherTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.photoTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.passportTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.utilityTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.leaseTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.licenseTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.councilTable.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+
 
     }
     
@@ -1097,9 +1315,33 @@ extension DocumentUploadViewController {
         if let _ = tblView.observationInfo {
             tblView.removeObserver(self, forKeyPath: "contentSize")
         }
-        guard let tblView = self.otherTable else {return}
-        if let _ = tblView.observationInfo {
-            tblView.removeObserver(self, forKeyPath: "contentSize")
+        guard let tblView1 = self.otherTable else {return}
+        if let _ = tblView1.observationInfo {
+            tblView1.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView2 = self.photoTable else {return}
+        if let _ = tblView2.observationInfo {
+            tblView2.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView3 = self.passportTable else {return}
+        if let _ = tblView3.observationInfo {
+            tblView3.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView4 = self.utilityTable else {return}
+        if let _ = tblView4.observationInfo {
+            tblView4.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView5 = self.leaseTable else {return}
+        if let _ = tblView5.observationInfo {
+            tblView5.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView6 = self.councilTable else {return}
+        if let _ = tblView6.observationInfo {
+            tblView6.removeObserver(self, forKeyPath: "contentSize")
+        }
+        guard let tblView7 = self.licenseTable else {return}
+        if let _ = tblView7.observationInfo {
+            tblView7.removeObserver(self, forKeyPath: "contentSize")
         }
     }
 }

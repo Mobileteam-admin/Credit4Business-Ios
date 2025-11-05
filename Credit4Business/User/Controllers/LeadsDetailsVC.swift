@@ -175,6 +175,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
    
     var accountFileUploadData = Data()
     var selectedDocumentsResponseForGocardless : DocumentsDataClass?
+    var sections = [SectionData]()
 
     //MARK: -------------------- Class Variable --------------------
     var customerName = ""
@@ -213,11 +214,19 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
     var selectedDirectorsResponse = [SelectedDirector]()
     var selectedGuarantorResponse : GuarantorDataClass?
     var guarantorKVArray = [MenuModel]()
-    var documentsKVArray = [MenuModel]()
+  //  var documentsKVArray = [MenuModel]()
+    
+    var photoArray = [MenuModel]()
+    var passportArray = [MenuModel]()
+    var utilityArray = [MenuModel]()
+    var licenseArray = [MenuModel]()
+    var councilArray = [MenuModel]()
+    var leaseArray = [MenuModel]()
+
     var otherDocumentsKVArray = [MenuModel]()
     var statementDocumentsKVArray = [MenuModel]()
-    var isStatementAvailable = false
-    var isOtherAvailable = false
+    //var isStatementAvailable = false
+   // var isOtherAvailable = false
     var signedContractKVArray = [MenuModel]()
     var selectedSignedContractResponse : ContractData?
     var selectedIdentityVerificationResponse: IdentityVerificationStatusModel?
@@ -251,7 +260,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         self.navigationController?.isNavigationBarHidden = true
         if let tabbar = self.parent?.parent as? TabBarController {
             if let navigationController = tabbar.parent as? UINavigationController {
@@ -265,7 +274,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
     override
     func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.isEnabled = false
     }
     func showSubmit() {
         self.fetchLoanDetails()
@@ -386,7 +395,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
            // }else{
                 self.fetchGocardlessStatementDetails()
            // }
-            if self.step1TF.text != "" && self.requisitionLink != "" && self.isAgreed {
+            if self.step1TF.text != "" && self.requisitionLink != "" && self.isAgreed && !self.step1Stack.isHidden {
                 let attributedTitle = NSMutableAttributedString(string: "Completed", attributes: [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 9.0), NSAttributedString.Key.foregroundColor: UIColor(named: "yellow")])
 
                 self.step1StatusButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -414,6 +423,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
             self.present(vc, animated: true)
         }
         self.backBtn.addTapGestureRecognizer {
+
             self.navigationController?.popViewController(animated: true)
         }
         self.identityVerificationSendBtn.addTapGestureRecognizer {
@@ -589,7 +599,7 @@ class LeadsDetailsVC: UIViewController,CellDelegate, loanSubmitDelegate {
 //          vc.directorDetail = directorDetail
 //          vc.identityVerified = identityVerified
 //          vc.gocardlessStatement = gocardlessStatement
-//  
+//
 //          return vc
 //      }
 }
@@ -673,7 +683,7 @@ extension LeadsDetailsVC : UICollectionViewDelegate,UICollectionViewDataSource{
                 self.countryCodeStack.isHidden = true
                 self.addBankAccountBtn.isHidden = true
                 self.documentStack.isHidden = true
-                if self.loanStatus != "Agent_Submitted" && self.loanStatus != "Underwriter_Submitted" && self.loanStatus != "Admin_Cash_Disbursed" {
+                if self.loanStatus.lowercased().contains("rejected") || self.loanStatus.lowercased().contains("inprogress") {
                     self.agreementStack.isHidden = false
                     self.bankNumberStack.isHidden = self.isAgreed
                     self.accountNumberStack.isHidden = self.isAgreed
@@ -740,14 +750,7 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
                 return 2
             }
             if self.selectedIndex == 5 {
-                var count = 1
-                if self.isOtherAvailable {
-                    count = count + 1
-                }
-                if self.isStatementAvailable {
-                    count = count + 1
-                }
-                return count
+                return self.sections.count
             }
             return 1
         }
@@ -777,17 +780,18 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
             case 4:
                 return 3
             case 5:
-                if section == 0 {
-                    return self.documentsKVArray.count
-                }else if section == 1 && self.isStatementAvailable {
-                    return self.statementDocumentsKVArray.count
-                }else if section == 1 && self.isOtherAvailable {
-                    return self.otherDocumentsKVArray.count
-                }else if section == 2 && self.isOtherAvailable {
-                    return self.otherDocumentsKVArray.count
-                }else{
-                    return 0
-                }
+//                if section == 0 {
+//                    return self.sections.count
+//                }else if section == 1 && self.isStatementAvailable {
+//                    return self.statementDocumentsKVArray.count
+//                }else if section == 1 && self.isOtherAvailable {
+//                    return self.otherDocumentsKVArray.count
+//                }else if section == 2 && self.isOtherAvailable {
+//                    return self.otherDocumentsKVArray.count
+//                }else{
+//                    return 0
+//                }
+                return self.sections.value(atSafe: section)?.items.count ?? 0
             case 6:
                 return self.guarantorKVArray.count
             case 8:
@@ -819,7 +823,7 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
                     return UITableViewCell()
                 }
                 if indexPath.row == 0 {
-                    cell.consentTitle.text = "I consent to receiving marketing information form credit4business Loans and its trading group of companies on products related to my current product by:"
+                    cell.consentTitle.text = "I consent to receiving marketing information form Credit4Business Loans and its trading group of companies on products related to my current product by:"
                     let consent1 = self.selectedConsentResponse?.receivingMarketingInfo
                     cell.option1Image.image =  consent1?.email == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                     cell.option2Image.image =  consent1?.post == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
@@ -828,7 +832,7 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
                     cell.option5Image.image =  consent1?.telephone == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                 }
                 else if indexPath.row == 1 {
-                    cell.consentTitle.text = "I consent to receiving marketing information form credit4business Loans and its trading group of companies on products related to my current product by:"
+                    cell.consentTitle.text = "I consent to receiving marketing information form Credit4Business Loans and its trading group of companies on products related to my current product by:"
                     let consent1 = self.selectedConsentResponse?.sendingMarketingInformation
                     cell.option1Image.image =  consent1?.email == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                     cell.option2Image.image =  consent1?.post == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
@@ -836,7 +840,7 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
                     cell.option4Image.image =  consent1?.socialMedia == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                     cell.option5Image.image =  consent1?.telephone == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                 }else{
-                        cell.consentTitle.text = "I consent to receiving marketing information form credit4business Loans and its trading group of companies on products related to my current product by:"
+                        cell.consentTitle.text = "I consent to receiving marketing information form Credit4Business Loans and its trading group of companies on products related to my current product by:"
                     let consent1 = self.selectedConsentResponse?.thirdPartySharing
                         cell.option1Image.image =  consent1?.email == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
                         cell.option2Image.image =  consent1?.post == true ? UIImage.init(named: "checkboxSelected") : UIImage.init(named: "checkboxUnselected")
@@ -933,51 +937,53 @@ extension LeadsDetailsVC : UITableViewDelegate, UITableViewDataSource {
                 cell.uploadView.isHidden = true
                 var path = ""
                 
-                if indexPath.section == 0 {
-                    var model = self.documentsKVArray.value(atSafe: indexPath.row)
+//                if indexPath.section == 0 {
+                    var model = self.sections.value(atSafe: indexPath.section)
                     cell.fileTypeLabel.text = model?.title
-                    cell.selectedFileName.text = model?.value
-                   path = model?.value ?? ""
+                    cell.selectedFileName.text = model?.items.value(atSafe: indexPath.row)
+                   path = model?.items.value(atSafe: indexPath.row) ?? ""
                    if path != "" && path != nil {
                        let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
                        cell.selectedFileName.text = fileName
                    }
-                }
-                else if indexPath.section == 1 && self.isStatementAvailable {
-                    var model = self.statementDocumentsKVArray.value(atSafe: indexPath.row)
-                    cell.fileTypeLabel.text = model?.title
-                    cell.selectedFileName.text = model?.value
-                   path = model?.value ?? ""
-                   if path != "" && path != nil {
-                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
-                       cell.selectedFileName.text = fileName
-                   }
-                    cell.fileTypeLabel.isHidden = indexPath.row != 0
-                }
-                else if indexPath.section == 1 && self.isOtherAvailable {
-                    var model = self.otherDocumentsKVArray.value(atSafe: indexPath.row)
-                    cell.fileTypeLabel.text = model?.title
-                    cell.selectedFileName.text = model?.value
-                   path = model?.value ?? ""
-                   if path != "" && path != nil {
-                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
-                       cell.selectedFileName.text = fileName
-                   }
-                    cell.fileTypeLabel.isHidden = indexPath.row != 0
+                cell.fileTypeLabel.isHidden = indexPath.row != 0
 
-                }
-                else if indexPath.section == 2 && self.isOtherAvailable {
-                    var model = self.otherDocumentsKVArray.value(atSafe: indexPath.row)
-                    cell.fileTypeLabel.text = model?.title
-                    cell.selectedFileName.text = model?.value
-                   path = model?.value ?? ""
-                   if path != "" && path != nil {
-                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
-                       cell.selectedFileName.text = fileName
-                   }
-                    cell.fileTypeLabel.isHidden = indexPath.row != 0
-
-                }
+//                }
+//                else if indexPath.section == 1 && self.isStatementAvailable {
+//                    var model = self.statementDocumentsKVArray.value(atSafe: indexPath.row)
+//                    cell.fileTypeLabel.text = model?.title
+//                    cell.selectedFileName.text = model?.value
+//                   path = model?.value ?? ""
+//                   if path != "" && path != nil {
+//                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
+//                       cell.selectedFileName.text = fileName
+//                   }
+//                    cell.fileTypeLabel.isHidden = indexPath.row != 0
+//                }
+//                else if indexPath.section == 1 && self.isOtherAvailable {
+//                    var model = self.otherDocumentsKVArray.value(atSafe: indexPath.row)
+//                    cell.fileTypeLabel.text = model?.title
+//                    cell.selectedFileName.text = model?.value
+//                   path = model?.value ?? ""
+//                   if path != "" && path != nil {
+//                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
+//                       cell.selectedFileName.text = fileName
+//                   }
+//                    cell.fileTypeLabel.isHidden = indexPath.row != 0
+//
+//                }
+//                else if indexPath.section == 2 && self.isOtherAvailable {
+//                    var model = self.otherDocumentsKVArray.value(atSafe: indexPath.row)
+//                    cell.fileTypeLabel.text = model?.title
+//                    cell.selectedFileName.text = model?.value
+//                   path = model?.value ?? ""
+//                   if path != "" && path != nil {
+//                       let fileName = URL(fileURLWithPath: path ).deletingPathExtension().lastPathComponent
+//                       cell.selectedFileName.text = fileName
+//                   }
+//                    cell.fileTypeLabel.isHidden = indexPath.row != 0
+//
+//                }
 //                switch indexPath.row {
 //                case 0:
 //                    cell.fileTypeLabel.text = "Photo of owner in business premises"
@@ -1744,8 +1750,8 @@ extension LeadsDetailsVC {
                     do {
                         let responseData = data.data
                         self.selectedDocumentsResponse = responseData
-                        self.isStatementAvailable = false
-                        self.isOtherAvailable = false
+                       // self.isStatementAvailable = false
+                        //self.isOtherAvailable = false
                         self.createModelArrayForUploadedDocumnets()
                         self.detailsTable.reloadData()
                     }
@@ -1791,39 +1797,111 @@ extension LeadsDetailsVC {
             self.signedContractKVArray.append(photo)
         }
     }
+    struct SectionData {
+        let title: String
+        let items: [String] // Or your custom data type for rows
+    }
     func createModelArrayForUploadedDocumnets() {
-        self.documentsKVArray.removeAll()
+        self.photoArray.removeAll()
+        self.passportArray.removeAll()
+        self.licenseArray.removeAll()
+        self.leaseArray.removeAll()
+        self.councilArray.removeAll()
+        self.utilityArray.removeAll()
         self.otherDocumentsKVArray.removeAll()
         self.statementDocumentsKVArray.removeAll()
-        if self.selectedDocumentsResponse?.photo != "" {
-            let photo = MenuModel.init(title: "Photo of owner in business premises", value: self.selectedDocumentsResponse?.photo ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        self.sections.removeAll()
+        
+        if self.selectedDocumentsResponse?.photo?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.photo ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Photo of owner in business premises", value: item.file, apiKey: "")
+                self.photoArray.append(photo)
+            }
+            
         }
-        if self.selectedDocumentsResponse?.passport != "" {
-            let photo = MenuModel.init(title: "Passport", value: self.selectedDocumentsResponse?.passport ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        if self.selectedDocumentsResponse?.passport?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.passport ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Passport", value: item.file, apiKey: "")
+                self.passportArray.append(photo)
+            }
+            
         }
-        if self.selectedDocumentsResponse?.drivingLicense != "" {
-            let photo = MenuModel.init(title: "Driving License", value: self.selectedDocumentsResponse?.drivingLicense ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        if self.selectedDocumentsResponse?.drivingLicense?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.drivingLicense ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Driving License", value: item.file, apiKey: "")
+                self.licenseArray.append(photo)
+            }
+            
         }
-        if self.selectedDocumentsResponse?.councilTax != "" {
-            let photo = MenuModel.init(title: "Council Tax", value: self.selectedDocumentsResponse?.councilTax ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        if self.selectedDocumentsResponse?.councilTax?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.councilTax ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Council Tax", value: item.file, apiKey: "")
+                self.councilArray.append(photo)
+            }
+            
         }
-        if self.selectedDocumentsResponse?.utilityBillOfTradingBusiness != "" {
-            let photo = MenuModel.init(title: "Latest Utility bill of Trading Business", value: self.selectedDocumentsResponse?.utilityBillOfTradingBusiness ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        if self.selectedDocumentsResponse?.utilityBillOfTradingBusiness?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.utilityBillOfTradingBusiness ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Latest Utility bill of Trading Business", value: item.file, apiKey: "")
+                self.utilityArray.append(photo)
+            }
+            
         }
-        if self.selectedDocumentsResponse?.leaseDeed != "" {
-            let photo = MenuModel.init(title: "Business premises lease deed", value: self.selectedDocumentsResponse?.leaseDeed ?? "", apiKey: "")
-            self.documentsKVArray.append(photo)
+        if self.selectedDocumentsResponse?.leaseDeed?.count ?? 0 != 0 {
+            for item in self.selectedDocumentsResponse?.leaseDeed ?? [MultipleDocumentsDataClass]() {
+                let photo = MenuModel.init(title: "Business premises lease deed", value: item.file, apiKey: "")
+                self.leaseArray.append(photo)
+            }
+            
         }
+        if self.photoArray.count != 0 {
+            sections.append(SectionData(title: "Photo of owner in business premises", items: self.photoArray.map({$0.value})))
+        }
+        if self.passportArray.count != 0 {
+            sections.append(SectionData(title: "Passport", items: self.passportArray.map({$0.value})))
+        }
+        if self.licenseArray.count != 0 {
+            sections.append(SectionData(title: "Driving License", items: self.licenseArray.map({$0.value})))
+        }
+        if self.councilArray.count != 0 {
+            sections.append(SectionData(title: "Council Tax", items: self.councilArray.map({$0.value})))
+        }
+        if self.utilityArray.count != 0 {
+            sections.append(SectionData(title: "Latest Utility bill of Trading Business", items: self.utilityArray.map({$0.value})))
+        }
+        if self.leaseArray.count != 0 {
+            sections.append(SectionData(title: "Business premises lease deed", items: self.leaseArray.map({$0.value})))
+        }
+        
+//        if self.selectedDocumentsResponse?.photo != "" {
+//            let photo = MenuModel.init(title: "Photo of owner in business premises", value: self.selectedDocumentsResponse?.photo ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
+//        if self.selectedDocumentsResponse?.passport != "" {
+//            let photo = MenuModel.init(title: "Passport", value: self.selectedDocumentsResponse?.passport ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
+//        if self.selectedDocumentsResponse?.drivingLicense != "" {
+//            let photo = MenuModel.init(title: "Driving License", value: self.selectedDocumentsResponse?.drivingLicense ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
+//        if self.selectedDocumentsResponse?.councilTax != "" {
+//            let photo = MenuModel.init(title: "Council Tax", value: self.selectedDocumentsResponse?.councilTax ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
+//        if self.selectedDocumentsResponse?.utilityBillOfTradingBusiness != "" {
+//            let photo = MenuModel.init(title: "Latest Utility bill of Trading Business", value: self.selectedDocumentsResponse?.utilityBillOfTradingBusiness ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
+//        if self.selectedDocumentsResponse?.leaseDeed != "" {
+//            let photo = MenuModel.init(title: "Business premises lease deed", value: self.selectedDocumentsResponse?.leaseDeed ?? "", apiKey: "")
+//            self.documentsKVArray.append(photo)
+//        }
         if self.selectedDocumentsResponse?.businessAccountStatement?.count ?? 0 != 0 {
             for item in self.selectedDocumentsResponse?.businessAccountStatement ?? [MultipleDocumentsDataClass]() {
                 let photo = MenuModel.init(title: "Business account statement for 6 months", value: item.file, apiKey: "")
                 self.statementDocumentsKVArray.append(photo)
-                self.isStatementAvailable = true
+               // self.isStatementAvailable = true
             }
             
         }
@@ -1831,9 +1909,15 @@ extension LeadsDetailsVC {
             for item in self.selectedDocumentsResponse?.otherFiles ?? [MultipleDocumentsDataClass]() {
                 let photo = MenuModel.init(title: "Other Files", value: item.file, apiKey: "")
                 self.otherDocumentsKVArray.append(photo)
-                self.isOtherAvailable = true
+                    // self.isOtherAvailable = true
             }
             
+        }
+        if self.statementDocumentsKVArray.count != 0 {
+            sections.append(SectionData(title: "Business account statement for 6 months", items: self.statementDocumentsKVArray.map({$0.value})))
+        }
+        if self.otherDocumentsKVArray.count != 0 {
+            sections.append(SectionData(title: "Other Files", items: self.otherDocumentsKVArray.map({$0.value})))
         }
     }
     func fetchPremiseDetails() {
@@ -2066,7 +2150,7 @@ extension LeadsDetailsVC {
 
                             //return
                         }
-                        if self.loanStatus != "Agent_Submitted" && self.loanStatus != "Underwriter_Submitted" && self.isAgreed && self.loanStatus != "Admin_Cash_Disbursed" {
+                        if self.isAgreed && (self.loanStatus.lowercased().contains("rejected") || self.loanStatus.lowercased().contains("inprogress")) {
                             self.step1Stack.isHidden = false
                             self.fetchBankDetails()
                             //                            self.dropdownType = .step1
@@ -2110,7 +2194,7 @@ extension LeadsDetailsVC {
                                 self.generateRegenerateBtn.setAttributedTitle(attributedTitle, for: .normal)
 
                             }
-                            if self.requisitionLink != "" && self.isAgreed {
+                            if self.requisitionLink != "" && self.isAgreed && !self.step1Stack.isHidden {
                                 let attributedTitle = NSMutableAttributedString(string: "Completed", attributes: [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 9.0), NSAttributedString.Key.foregroundColor: UIColor(named: "yellow")])
 
                                 self.step1StatusButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -2126,7 +2210,7 @@ extension LeadsDetailsVC {
 
                             //return
                         }
-                        if self.loanStatus != "Agent_Submitted" && self.loanStatus != "Underwriter_Submitted" && self.isAgreed && self.loanStatus != "Admin_Cash_Disbursed" {
+                        if self.isAgreed && (self.loanStatus.lowercased().contains("rejected") || self.loanStatus.lowercased().contains("inprogress")) {
                             //self.step1Stack.isHidden = false
                             self.bankNumberStack.isHidden = self.isAgreed
                             self.accountNumberStack.isHidden = self.isAgreed
@@ -2224,7 +2308,7 @@ extension LeadsDetailsVC {
             case .success(let data):
                 if data.statusCode == 200 {
                     self.showAlert(title: "Info", message: data.statusMessage)
-                    self.step2Stack.isHidden = false
+                    self.step2Stack.isHidden = (self.step1Stack.isHidden ? true : false)
                     let attributedTitle = NSMutableAttributedString(string: "Completed", attributes: [NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 9.0), NSAttributedString.Key.foregroundColor: UIColor(named: "yellow")])
 
                     self.step1StatusButton.setAttributedTitle(attributedTitle, for: .normal)
